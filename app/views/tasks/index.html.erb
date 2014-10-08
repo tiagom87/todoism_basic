@@ -1,0 +1,32 @@
+
+
+<div class="row">
+  <div class="col-md-4">
+  <h2>To Do</h2>
+  <hr>
+    <% if @to_do.size < 1 %>
+    <p class="text-center">No tasks here</p>
+    <% else %>
+    <%= render @to_do %>
+    <% end %>
+    <%= render "form" %>
+  </div>
+  <div class="col-md-4">
+    <h2>Doing</h2>
+    <hr>
+    <% if @doing.size < 1 %>
+    <p class="text-center">No tasks here</p>
+    <% else %>
+    <%= render @doing %>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h2>Done</h2>
+    <hr>
+    <% if @done.size < 1 %>
+    <p class="text-center">No tasks here</p>
+    <% else %>
+    <%= render @done %>
+    <% end %>
+  </div>
+</div>

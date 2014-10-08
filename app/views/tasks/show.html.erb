@@ -1,0 +1,18 @@
+
+<p>
+  <strong>Content:</strong>
+  <%= @task.content %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @task.state %>
+</p>
+
+<p>
+  <strong>Board:</strong>
+  <%= @task.board_id %>
+</p>
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Back', tasks_path %>
