@@ -66,6 +66,13 @@ class TasksController < ApplicationController
     end
   end
 
+  def todo
+    @task.update_attributes(state: "to_do")
+    respond_to do |format|
+      format.html {redirect_to tasks_path, notice: "Task Updated" }
+    end
+  end
+
   private
 
     def set_task

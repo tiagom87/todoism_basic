@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     member do
       put :doing
       put :done
+      put :todo
     end
   end
 
