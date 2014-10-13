@@ -1,0 +1,1018 @@
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (8.4ms)[0m  [1mSELECT t2.relname AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'board_members'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.9ms)[0m  SELECT t2.relname AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'boards'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.9ms)[0m  [1mSELECT t2.relname AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'schema_migrations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (7.2ms)[0m  SELECT t2.relname AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'task_ships'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (6.0ms)[0m  [1mSELECT t2.relname AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tasks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.6ms)[0m  SELECT t2.relname AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (18.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (4.5ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to DeviseCreateUsers (20141008034054)
+  [1m[35m (0.3ms)[0m  BEGIN
+DEPRECATION WARNING: `timestamp` was called without specifying an option for `null`. In Rails
+5.0, this behavior will change to `null: false`. You should manually
+specify `null: true` to prevent the behavior of your existing migrations
+from changing.
+ (called from block in change at /Users/user/dev/todoism_basic/db/migrate/20141008034054_devise_create_users.rb:34)
+  [1m[36m (39.8ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying DEFAULT '' NOT NULL, "encrypted_password" character varying DEFAULT '' NOT NULL, "reset_password_token" character varying, "reset_password_sent_at" timestamp, "remember_created_at" timestamp, "sign_in_count" integer DEFAULT 0 NOT NULL, "current_sign_in_at" timestamp, "last_sign_in_at" timestamp, "current_sign_in_ip" character varying, "last_sign_in_ip" character varying, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX  "index_users_on_email" ON "users"  ("email")
+  [1m[36m (1.4ms)[0m  [1mCREATE UNIQUE INDEX  "index_users_on_reset_password_token" ON "users"  ("reset_password_token")[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141008034054"]]
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Migrating to AddNameToUsers (20141008043111)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (3.6ms)[0m  [1mALTER TABLE "users" ADD COLUMN "name" character varying[0m
+  [1m[35mSQL (0.8ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141008043111"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTasks (20141008045629)
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (6.4ms)[0m  [1mCREATE TABLE "tasks" ("id" serial primary key, "content" text, "state" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141008045629"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+Migrating to AddUserIdToTasks (20141008072529)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (0.5ms)[0m  [1mALTER TABLE "tasks" ADD COLUMN "user_id" integer[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20141008072529"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.3ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (6.6ms)[0m  [1mSELECT t2.relname AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'schema_migrations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (5.6ms)[0m  SELECT t2.relname AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'tasks'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (5.7ms)[0m  [1mSELECT t2.relname AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'users'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/" for ::1 at 2014-10-13 11:19:31 -0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (3.1ms)
+Warning. Error encountered while saving cache 3a0c810f19f6d399f290b7cefc9dcb5408826cb5/devise.css.scssc: can't dump anonymous class #<Class:0x00000101683880>
+
+Warning. Error encountered while saving cache 3a0c810f19f6d399f290b7cefc9dcb5408826cb5/pages.css.scssc: can't dump anonymous class #<Class:0x00000101683880>
+
+Warning. Error encountered while saving cache 3a0c810f19f6d399f290b7cefc9dcb5408826cb5/tasks.css.scssc: can't dump anonymous class #<Class:0x00000101683880>
+
+  Rendered layouts/_header.html.erb (1.5ms)
+Completed 200 OK in 2458ms (Views: 2427.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome-51b7124f53b9cee4c1447e37057349e3.css?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap-7087dd471264a54bd0f9e96edd3c6670.css?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/bootstrap_and_overrides-ba0850031c924a84eae121f2c89e1ca9.css?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/pages-cbef332723a7c72faa189009187da3db.css?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/devise-863d8fdc78369874919f87413eede0b2.css?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/tasks-3b4b24374a2fd201f278aac60edbb92d.css?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/font-awesome-c319ddc999c76dcdf821662d81ec4608.css?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/jquery-6a50177757f6c64493882fb7aae952c3.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/jquery_ujs-03cb26c4b41579fc5e95ea8f47ac5e18.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter/bootstrap/transition-3005c626234d995c29e4bcbd07b3ac0c.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-f5a24e96d563b9a6d252c1c07a6ecc6b.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter/bootstrap/modal-82015eda5031618c5aba3ebf9fc2cf4b.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f421d662af4612a610656bfeee3407d9.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter/bootstrap/alert-8186e091f2fa7c9423e9cadae6ce4de4.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter/bootstrap/popover-df8ed104d2525bbc4b4dad060e68cf99.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter/bootstrap/button-c9d4d44342d7be7abeb23fb0edbe00b7.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tab-dec75af9b2ffeed03dc43eabdb771d48.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-5e9e765caafcbcb1672a3e72ef7f4a3a.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter/bootstrap/collapse-417aacb8b3257798b481ed397b421b7c.js?body=1" for ::1 at 2014-10-13 11:19:34 -0700
+
+
+Started GET "/assets/twitter/bootstrap/carousel-b0f1e7b56803d98d500f5ccc15d550e3.js?body=1" for ::1 at 2014-10-13 11:19:35 -0700
+
+
+Started GET "/assets/twitter/bootstrap/affix-04c58ad484d0bdbdf9514b7d09505d25.js?body=1" for ::1 at 2014-10-13 11:19:35 -0700
+
+
+Started GET "/assets/turbolinks-ebcce04d6463d2d77b51c18291df6925.js?body=1" for ::1 at 2014-10-13 11:19:35 -0700
+
+
+Started GET "/assets/twitter/bootstrap-d4f5166f5e6a389dda198125afae7f5c.js?body=1" for ::1 at 2014-10-13 11:19:35 -0700
+
+
+Started GET "/assets/bootstrap-775504da1d9c85ad8845affd8af349d4.js?body=1" for ::1 at 2014-10-13 11:19:35 -0700
+
+
+Started GET "/assets/pages-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:19:35 -0700
+
+
+Started GET "/assets/tasks-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:19:35 -0700
+
+
+Started GET "/users/sign_in" for ::1 at 2014-10-13 11:19:37 -0700
+Processing by Devise::SessionsController#new as HTML
+DEPRECATION WARNING: `column_for_attribute` will return a null object for non-existent columns
+in Rails 5.0. Use `has_attribute?` if you need to check for an
+attribute's existence.
+ (called from block in _app_views_devise_sessions_new_html_erb__587450529984346168_2206031060 at /Users/user/dev/todoism_basic/app/views/devise/sessions/new.html.erb:7)
+  Rendered devise/shared/_links.html.erb (20.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (178.7ms)
+  Rendered layouts/_header.html.erb (0.6ms)
+Completed 200 OK in 590ms (Views: 550.1ms | ActiveRecord: 6.5ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2014-10-13 11:19:40 -0700
+Processing by Devise::RegistrationsController#new as HTML
+DEPRECATION WARNING: `column_for_attribute` will return a null object for non-existent columns
+in Rails 5.0. Use `has_attribute?` if you need to check for an
+attribute's existence.
+ (called from block in _app_views_devise_registrations_new_html_erb__1760062231339036420_2205930980 at /Users/user/dev/todoism_basic/app/views/devise/registrations/new.html.erb:6)
+DEPRECATION WARNING: `column_for_attribute` will return a null object for non-existent columns
+in Rails 5.0. Use `has_attribute?` if you need to check for an
+attribute's existence.
+ (called from block in _app_views_devise_registrations_new_html_erb__1760062231339036420_2205930980 at /Users/user/dev/todoism_basic/app/views/devise/registrations/new.html.erb:7)
+  Rendered devise/shared/_links.html.erb (11.6ms)
+  Rendered devise/registrations/new.html.erb within layouts/application (43.6ms)
+  Rendered layouts/_header.html.erb (0.7ms)
+Completed 200 OK in 354ms (Views: 352.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2014-10-13 11:19:49 -0700
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"+AO70goKemZSRy0gBpA026gBlbobU5Aw9u8TdU8MKMUFA5vAhu0/iTTeSbwh1J8kl+NiNtbR+Gv20B35bO1lgA==", "user"=>{"name"=>"Tiago", "email"=>"tiago.martins@songvice.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (12.9ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'tiago.martins@songvice.com' LIMIT 1[0m
+  [1m[35mSQL (4.1ms)[0m  INSERT INTO "users" ("created_at", "email", "encrypted_password", "name", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", "2014-10-13 18:19:49.997951"], ["email", "tiago.martins@songvice.com"], ["encrypted_password", "$2a$10$xhMTPUDBbwVKG2Q8dMUjUOTlJi2Wa.yv3VrVLYftHPAlFpaeiwbwS"], ["name", "Tiago"], ["updated_at", "2014-10-13 18:19:49.997951"]]
+  [1m[36m (13.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (4.0ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = $1, "current_sign_in_ip" = $2, "last_sign_in_at" = $3, "last_sign_in_ip" = $4, "sign_in_count" = $5, "updated_at" = $6 WHERE "users"."id" = 1[0m  [["current_sign_in_at", "2014-10-13 18:19:50.033109"], ["current_sign_in_ip", "::1"], ["last_sign_in_at", "2014-10-13 18:19:50.033109"], ["last_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2014-10-13 18:19:50.037767"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 216ms (ActiveRecord: 35.9ms)
+
+
+Started GET "/" for ::1 at 2014-10-13 11:19:50 -0700
+Processing by PagesController#home as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 10ms (ActiveRecord: 0.5ms)
+
+
+Started GET "/tasks" for ::1 at 2014-10-13 11:19:50 -0700
+Processing by TasksController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered tasks/_form.html.erb (19.2ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "doing"]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  Rendered tasks/index.html.erb within layouts/application (27.1ms)
+  Rendered layouts/_header.html.erb (0.5ms)
+Completed 200 OK in 416ms (Views: 367.0ms | ActiveRecord: 5.4ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome-51b7124f53b9cee4c1447e37057349e3.css?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/bootstrap_and_overrides-ba0850031c924a84eae121f2c89e1ca9.css?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap-7087dd471264a54bd0f9e96edd3c6670.css?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/font-awesome-c319ddc999c76dcdf821662d81ec4608.css?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/jquery-6a50177757f6c64493882fb7aae952c3.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/jquery_ujs-03cb26c4b41579fc5e95ea8f47ac5e18.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/transition-3005c626234d995c29e4bcbd07b3ac0c.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/alert-8186e091f2fa7c9423e9cadae6ce4de4.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/modal-82015eda5031618c5aba3ebf9fc2cf4b.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-f5a24e96d563b9a6d252c1c07a6ecc6b.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f421d662af4612a610656bfeee3407d9.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/button-c9d4d44342d7be7abeb23fb0edbe00b7.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/popover-df8ed104d2525bbc4b4dad060e68cf99.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tab-dec75af9b2ffeed03dc43eabdb771d48.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-5e9e765caafcbcb1672a3e72ef7f4a3a.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/collapse-417aacb8b3257798b481ed397b421b7c.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/affix-04c58ad484d0bdbdf9514b7d09505d25.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap/carousel-b0f1e7b56803d98d500f5ccc15d550e3.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/twitter/bootstrap-d4f5166f5e6a389dda198125afae7f5c.js?body=1" for ::1 at 2014-10-13 11:19:50 -0700
+
+
+Started GET "/assets/turbolinks-ebcce04d6463d2d77b51c18291df6925.js?body=1" for ::1 at 2014-10-13 11:19:51 -0700
+
+
+Started GET "/assets/bootstrap-775504da1d9c85ad8845affd8af349d4.js?body=1" for ::1 at 2014-10-13 11:19:51 -0700
+
+
+Started GET "/assets/pages-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:19:51 -0700
+
+
+Started GET "/assets/tasks-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:19:51 -0700
+
+
+Started POST "/tasks" for ::1 at 2014-10-13 11:19:59 -0700
+Processing by TasksController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"TaPmCwR8F5IlJioWwvDaNmwOuxCU4dByM4TZTFbS8yuwo8YZiJtSfUO/TorltHHJU+xMnFljuCkzu9fAdTO+bg==", "task"=>{"content"=>"Hello", "state"=>"to_do"}, "commit"=>"Create"}
+  [1m[35mUser Load (2.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.2ms)[0m  INSERT INTO "tasks" ("content", "created_at", "state", "updated_at", "user_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["content", "Hello"], ["created_at", "2014-10-13 18:19:59.574221"], ["state", "to_do"], ["updated_at", "2014-10-13 18:19:59.574221"], ["user_id", 1]]
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 43ms (ActiveRecord: 4.9ms)
+
+
+Started GET "/tasks" for ::1 at 2014-10-13 11:19:59 -0700
+Processing by TasksController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  [1m[35mTask Load (0.3ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "to_do"]]
+  Rendered tasks/_task.html.erb (2.9ms)
+  Rendered tasks/_form.html.erb (4.6ms)
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "done"]]
+  Rendered tasks/index.html.erb within layouts/application (31.3ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 396ms (Views: 384.0ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/assets/font-awesome-c319ddc999c76dcdf821662d81ec4608.css?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/bootstrap_and_overrides-ba0850031c924a84eae121f2c89e1ca9.css?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/jquery-6a50177757f6c64493882fb7aae952c3.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/jquery_ujs-03cb26c4b41579fc5e95ea8f47ac5e18.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome-51b7124f53b9cee4c1447e37057349e3.css?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap-7087dd471264a54bd0f9e96edd3c6670.css?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/alert-8186e091f2fa7c9423e9cadae6ce4de4.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-f5a24e96d563b9a6d252c1c07a6ecc6b.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f421d662af4612a610656bfeee3407d9.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/modal-82015eda5031618c5aba3ebf9fc2cf4b.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/transition-3005c626234d995c29e4bcbd07b3ac0c.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-5e9e765caafcbcb1672a3e72ef7f4a3a.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/popover-df8ed104d2525bbc4b4dad060e68cf99.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/collapse-417aacb8b3257798b481ed397b421b7c.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/button-c9d4d44342d7be7abeb23fb0edbe00b7.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/carousel-b0f1e7b56803d98d500f5ccc15d550e3.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/affix-04c58ad484d0bdbdf9514b7d09505d25.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tab-dec75af9b2ffeed03dc43eabdb771d48.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/twitter/bootstrap-d4f5166f5e6a389dda198125afae7f5c.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/pages-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/turbolinks-ebcce04d6463d2d77b51c18291df6925.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/tasks-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started GET "/assets/bootstrap-775504da1d9c85ad8845affd8af349d4.js?body=1" for ::1 at 2014-10-13 11:20:00 -0700
+
+
+Started PUT "/tasks/1/doing" for ::1 at 2014-10-13 11:20:03 -0700
+Processing by TasksController#doing as HTML
+  Parameters: {"authenticity_token"=>"MI348rCUWCL7H8cET7msnUki7vfV4e5jI5ExyliDcQ7NjdjgPHMdzZ2Go5ho/QdidsAZexhjhjgjrj9Ge2I8Sw==", "id"=>"1"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTask Load (0.4ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "state" = $1, "updated_at" = $2 WHERE "tasks"."id" = 1  [["state", "doing"], ["updated_at", "2014-10-13 18:20:03.139849"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 35ms (ActiveRecord: 2.2ms)
+
+
+Started GET "/tasks" for ::1 at 2014-10-13 11:20:03 -0700
+Processing by TasksController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered tasks/_form.html.erb (4.0ms)
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "doing"]]
+  [1m[36mTask Load (2.8ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered tasks/_task.html.erb (0.6ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "done"]]
+  Rendered tasks/index.html.erb within layouts/application (15.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 357ms (Views: 348.7ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome-51b7124f53b9cee4c1447e37057349e3.css?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap-7087dd471264a54bd0f9e96edd3c6670.css?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/bootstrap_and_overrides-ba0850031c924a84eae121f2c89e1ca9.css?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/font-awesome-c319ddc999c76dcdf821662d81ec4608.css?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/jquery-6a50177757f6c64493882fb7aae952c3.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/jquery_ujs-03cb26c4b41579fc5e95ea8f47ac5e18.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/transition-3005c626234d995c29e4bcbd07b3ac0c.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/alert-8186e091f2fa7c9423e9cadae6ce4de4.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-f5a24e96d563b9a6d252c1c07a6ecc6b.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f421d662af4612a610656bfeee3407d9.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tab-dec75af9b2ffeed03dc43eabdb771d48.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-5e9e765caafcbcb1672a3e72ef7f4a3a.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/modal-82015eda5031618c5aba3ebf9fc2cf4b.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/popover-df8ed104d2525bbc4b4dad060e68cf99.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/button-c9d4d44342d7be7abeb23fb0edbe00b7.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/collapse-417aacb8b3257798b481ed397b421b7c.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap-d4f5166f5e6a389dda198125afae7f5c.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/affix-04c58ad484d0bdbdf9514b7d09505d25.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/bootstrap-775504da1d9c85ad8845affd8af349d4.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/twitter/bootstrap/carousel-b0f1e7b56803d98d500f5ccc15d550e3.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/turbolinks-ebcce04d6463d2d77b51c18291df6925.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/pages-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:03 -0700
+
+
+Started GET "/assets/tasks-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:04 -0700
+
+
+Started PUT "/tasks/1/done" for ::1 at 2014-10-13 11:20:05 -0700
+Processing by TasksController#done as HTML
+  Parameters: {"authenticity_token"=>"LPkw1JE1YQ0lSsIZP1gstenzkffYKpwSnz9egpzKPrrR+RDGHdIk4kPTpoUYHIdK1hFmexWo9EmfAFAOvytz/w==", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTask Load (0.4ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "state" = $1, "updated_at" = $2 WHERE "tasks"."id" = 1  [["state", "done"], ["updated_at", "2014-10-13 18:20:05.468340"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 8ms (ActiveRecord: 1.9ms)
+
+
+Started GET "/tasks" for ::1 at 2014-10-13 11:20:05 -0700
+Processing by TasksController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered tasks/_form.html.erb (3.7ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "doing"]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "done"]]
+  [1m[35mTask Load (0.7ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "done"]]
+  Rendered tasks/_task.html.erb (0.5ms)
+  Rendered tasks/index.html.erb within layouts/application (11.8ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 357ms (Views: 350.9ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome-51b7124f53b9cee4c1447e37057349e3.css?body=1" for ::1 at 2014-10-13 11:20:05 -0700
+
+
+Started GET "/assets/font-awesome-c319ddc999c76dcdf821662d81ec4608.css?body=1" for ::1 at 2014-10-13 11:20:05 -0700
+
+
+Started GET "/assets/bootstrap_and_overrides-ba0850031c924a84eae121f2c89e1ca9.css?body=1" for ::1 at 2014-10-13 11:20:05 -0700
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap-7087dd471264a54bd0f9e96edd3c6670.css?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/jquery-6a50177757f6c64493882fb7aae952c3.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/modal-82015eda5031618c5aba3ebf9fc2cf4b.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/alert-8186e091f2fa7c9423e9cadae6ce4de4.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/jquery_ujs-03cb26c4b41579fc5e95ea8f47ac5e18.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/transition-3005c626234d995c29e4bcbd07b3ac0c.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-f5a24e96d563b9a6d252c1c07a6ecc6b.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f421d662af4612a610656bfeee3407d9.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tab-dec75af9b2ffeed03dc43eabdb771d48.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/popover-df8ed104d2525bbc4b4dad060e68cf99.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/button-c9d4d44342d7be7abeb23fb0edbe00b7.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/collapse-417aacb8b3257798b481ed397b421b7c.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/affix-04c58ad484d0bdbdf9514b7d09505d25.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap-d4f5166f5e6a389dda198125afae7f5c.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/carousel-b0f1e7b56803d98d500f5ccc15d550e3.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/turbolinks-ebcce04d6463d2d77b51c18291df6925.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/bootstrap-775504da1d9c85ad8845affd8af349d4.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/pages-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/tasks-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-5e9e765caafcbcb1672a3e72ef7f4a3a.js?body=1" for ::1 at 2014-10-13 11:20:06 -0700
+
+
+Started PUT "/tasks/1/doing" for ::1 at 2014-10-13 11:20:09 -0700
+Processing by TasksController#doing as HTML
+  Parameters: {"authenticity_token"=>"LMk5S5NCH+mH/FCSwuXJ9sPcseoPGq7ZD3lIR6e4enPRyRlZH6VaBuFlNA7loWIJ/D5GZsKYxoIPRkbLhFk3Ng==", "id"=>"1"}
+  [1m[36mUser Load (2.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTask Load (1.3ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (1.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "tasks" SET "state" = $1, "updated_at" = $2 WHERE "tasks"."id" = 1  [["state", "doing"], ["updated_at", "2014-10-13 18:20:09.198230"]]
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 16ms (ActiveRecord: 6.1ms)
+
+
+Started GET "/tasks" for ::1 at 2014-10-13 11:20:09 -0700
+Processing by TasksController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.4ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered tasks/_form.html.erb (3.5ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "doing"]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered tasks/_task.html.erb (0.6ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "done"]]
+  Rendered tasks/index.html.erb within layouts/application (12.0ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 358ms (Views: 352.6ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome-51b7124f53b9cee4c1447e37057349e3.css?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/bootstrap_and_overrides-ba0850031c924a84eae121f2c89e1ca9.css?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap-7087dd471264a54bd0f9e96edd3c6670.css?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/font-awesome-c319ddc999c76dcdf821662d81ec4608.css?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/jquery-6a50177757f6c64493882fb7aae952c3.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/jquery_ujs-03cb26c4b41579fc5e95ea8f47ac5e18.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap/transition-3005c626234d995c29e4bcbd07b3ac0c.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap/alert-8186e091f2fa7c9423e9cadae6ce4de4.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap/modal-82015eda5031618c5aba3ebf9fc2cf4b.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-f5a24e96d563b9a6d252c1c07a6ecc6b.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f421d662af4612a610656bfeee3407d9.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tab-dec75af9b2ffeed03dc43eabdb771d48.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-5e9e765caafcbcb1672a3e72ef7f4a3a.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap/button-c9d4d44342d7be7abeb23fb0edbe00b7.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap/popover-df8ed104d2525bbc4b4dad060e68cf99.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap/collapse-417aacb8b3257798b481ed397b421b7c.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap/carousel-b0f1e7b56803d98d500f5ccc15d550e3.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/bootstrap-775504da1d9c85ad8845affd8af349d4.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/twitter/bootstrap-d4f5166f5e6a389dda198125afae7f5c.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/turbolinks-ebcce04d6463d2d77b51c18291df6925.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/pages-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:09 -0700
+
+
+Started GET "/assets/tasks-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:10 -0700
+
+
+Started GET "/assets/twitter/bootstrap/affix-04c58ad484d0bdbdf9514b7d09505d25.js?body=1" for ::1 at 2014-10-13 11:20:10 -0700
+
+
+Started PUT "/tasks/1/todo" for ::1 at 2014-10-13 11:20:10 -0700
+Processing by TasksController#todo as HTML
+  Parameters: {"authenticity_token"=>"5AVozrXx9gJ7HeKtUMv9nZ2fwP8JJEZRpDkPuCo1mkcZBUjcORaz7R2EhjF3j1Zion03c8SmLgqkBgE0CdTXAg==", "id"=>"1"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTask Load (0.4ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "state" = $1, "updated_at" = $2 WHERE "tasks"."id" = 1  [["state", "to_do"], ["updated_at", "2014-10-13 18:20:10.791418"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 8ms (ActiveRecord: 1.8ms)
+
+
+Started GET "/tasks" for ::1 at 2014-10-13 11:20:10 -0700
+Processing by TasksController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  [1m[35mTask Load (0.8ms)[0m  SELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "to_do"]]
+  Rendered tasks/_task.html.erb (0.6ms)
+  Rendered tasks/_form.html.erb (3.4ms)
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "done"]]
+  Rendered tasks/index.html.erb within layouts/application (13.6ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 365ms (Views: 358.0ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome-51b7124f53b9cee4c1447e37057349e3.css?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap-7087dd471264a54bd0f9e96edd3c6670.css?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/bootstrap_and_overrides-ba0850031c924a84eae121f2c89e1ca9.css?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/font-awesome-c319ddc999c76dcdf821662d81ec4608.css?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/jquery-6a50177757f6c64493882fb7aae952c3.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/jquery_ujs-03cb26c4b41579fc5e95ea8f47ac5e18.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/transition-3005c626234d995c29e4bcbd07b3ac0c.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/alert-8186e091f2fa7c9423e9cadae6ce4de4.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/modal-82015eda5031618c5aba3ebf9fc2cf4b.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-f5a24e96d563b9a6d252c1c07a6ecc6b.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f421d662af4612a610656bfeee3407d9.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tab-dec75af9b2ffeed03dc43eabdb771d48.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-5e9e765caafcbcb1672a3e72ef7f4a3a.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/popover-df8ed104d2525bbc4b4dad060e68cf99.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/button-c9d4d44342d7be7abeb23fb0edbe00b7.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/collapse-417aacb8b3257798b481ed397b421b7c.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/carousel-b0f1e7b56803d98d500f5ccc15d550e3.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/turbolinks-ebcce04d6463d2d77b51c18291df6925.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap-d4f5166f5e6a389dda198125afae7f5c.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/pages-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/bootstrap-775504da1d9c85ad8845affd8af349d4.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/twitter/bootstrap/affix-04c58ad484d0bdbdf9514b7d09505d25.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started GET "/assets/tasks-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:11 -0700
+
+
+Started PUT "/tasks/1/doing" for ::1 at 2014-10-13 11:20:13 -0700
+Processing by TasksController#doing as HTML
+  Parameters: {"authenticity_token"=>"uSmJwRXWF4U32gKIocuMCslaOVan2OXhFyQa+2IZFLpEKanTmTFSalFDZhSGjyf19rjO2mpajboXGxR3QfhZ/w==", "id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35mTask Load (0.7ms)[0m  SELECT  "tasks".* FROM "tasks" WHERE "tasks"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "tasks" SET "state" = $1, "updated_at" = $2 WHERE "tasks"."id" = 1  [["state", "doing"], ["updated_at", "2014-10-13 18:20:13.190505"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/tasks
+Completed 302 Found in 10ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/tasks" for ::1 at 2014-10-13 11:20:13 -0700
+Processing by TasksController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "to_do"]]
+  Rendered tasks/_form.html.erb (3.6ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "doing"]]
+  [1m[36mTask Load (0.3ms)[0m  [1mSELECT "tasks".* FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2[0m  [["user_id", 1], ["state", "doing"]]
+  Rendered tasks/_task.html.erb (0.7ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM "tasks" WHERE "tasks"."user_id" = $1 AND "tasks"."state" = $2  [["user_id", 1], ["state", "done"]]
+  Rendered tasks/index.html.erb within layouts/application (11.8ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 355ms (Views: 349.1ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap-7087dd471264a54bd0f9e96edd3c6670.css?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome-51b7124f53b9cee4c1447e37057349e3.css?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/bootstrap_and_overrides-ba0850031c924a84eae121f2c89e1ca9.css?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/font-awesome-c319ddc999c76dcdf821662d81ec4608.css?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/jquery-6a50177757f6c64493882fb7aae952c3.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter/bootstrap/transition-3005c626234d995c29e4bcbd07b3ac0c.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/jquery_ujs-03cb26c4b41579fc5e95ea8f47ac5e18.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter/bootstrap/modal-82015eda5031618c5aba3ebf9fc2cf4b.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter/bootstrap/alert-8186e091f2fa7c9423e9cadae6ce4de4.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-f5a24e96d563b9a6d252c1c07a6ecc6b.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f421d662af4612a610656bfeee3407d9.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tab-dec75af9b2ffeed03dc43eabdb771d48.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-5e9e765caafcbcb1672a3e72ef7f4a3a.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter/bootstrap/popover-df8ed104d2525bbc4b4dad060e68cf99.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter/bootstrap/button-c9d4d44342d7be7abeb23fb0edbe00b7.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter/bootstrap/collapse-417aacb8b3257798b481ed397b421b7c.js?body=1" for ::1 at 2014-10-13 11:20:13 -0700
+
+
+Started GET "/assets/twitter/bootstrap/carousel-b0f1e7b56803d98d500f5ccc15d550e3.js?body=1" for ::1 at 2014-10-13 11:20:14 -0700
+
+
+Started GET "/assets/twitter/bootstrap/affix-04c58ad484d0bdbdf9514b7d09505d25.js?body=1" for ::1 at 2014-10-13 11:20:14 -0700
+
+
+Started GET "/assets/twitter/bootstrap-d4f5166f5e6a389dda198125afae7f5c.js?body=1" for ::1 at 2014-10-13 11:20:14 -0700
+
+
+Started GET "/assets/turbolinks-ebcce04d6463d2d77b51c18291df6925.js?body=1" for ::1 at 2014-10-13 11:20:14 -0700
+
+
+Started GET "/assets/bootstrap-775504da1d9c85ad8845affd8af349d4.js?body=1" for ::1 at 2014-10-13 11:20:14 -0700
+
+
+Started GET "/assets/pages-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:14 -0700
+
+
+Started GET "/assets/tasks-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:14 -0700
+
+
+Started DELETE "/users/sign_out" for ::1 at 2014-10-13 11:20:17 -0700
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3aRti3+bKFSFYhhtjtxweBkoMqDf41DNcS624jhZQUcgpE2Z83xtu+P7fPGpmNuHJsrFLBJhOJZxEbhuG7gMAg=="}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = $1  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (0.1ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 10ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for ::1 at 2014-10-13 11:20:17 -0700
+Processing by PagesController#home as HTML
+  Rendered pages/home.html.erb within layouts/application (0.3ms)
+  Rendered layouts/_header.html.erb (0.4ms)
+Completed 200 OK in 321ms (Views: 319.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome-51b7124f53b9cee4c1447e37057349e3.css?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/font-awesome-c319ddc999c76dcdf821662d81ec4608.css?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/bootstrap_and_overrides-ba0850031c924a84eae121f2c89e1ca9.css?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/jquery-6a50177757f6c64493882fb7aae952c3.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/jquery_ujs-03cb26c4b41579fc5e95ea8f47ac5e18.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap-7087dd471264a54bd0f9e96edd3c6670.css?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/dropdown-f5a24e96d563b9a6d252c1c07a6ecc6b.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/alert-8186e091f2fa7c9423e9cadae6ce4de4.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/modal-82015eda5031618c5aba3ebf9fc2cf4b.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/transition-3005c626234d995c29e4bcbd07b3ac0c.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy-f421d662af4612a610656bfeee3407d9.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tooltip-5e9e765caafcbcb1672a3e72ef7f4a3a.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/tab-dec75af9b2ffeed03dc43eabdb771d48.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/button-c9d4d44342d7be7abeb23fb0edbe00b7.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/popover-df8ed104d2525bbc4b4dad060e68cf99.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/carousel-b0f1e7b56803d98d500f5ccc15d550e3.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/collapse-417aacb8b3257798b481ed397b421b7c.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap/affix-04c58ad484d0bdbdf9514b7d09505d25.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/twitter/bootstrap-d4f5166f5e6a389dda198125afae7f5c.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/turbolinks-ebcce04d6463d2d77b51c18291df6925.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/pages-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/bootstrap-775504da1d9c85ad8845affd8af349d4.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
+
+
+Started GET "/assets/tasks-32740fa4bc301ff5ef2eca5d8d82335a.js?body=1" for ::1 at 2014-10-13 11:20:18 -0700
