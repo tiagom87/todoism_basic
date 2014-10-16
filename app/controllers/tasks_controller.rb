@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
   before_filter :authenticate_user!
-  before_action :set_task, only: [:show, :edit, :update, :destroy, :todo, :doing, :done]
+  before_action :set_task, only: [:show, :edit, :update, :destroy, :change]
 
   def index
     @to_do = current_user.tasks.where(state: "to_do")
@@ -37,39 +37,20 @@ class TasksController < ApplicationController
   end
 
   def update
-    @task.update(task_params)
-    respond_to do |format|
-      format.html {redirect_to tasks_path, notice: "Task Updated" }
+    if params[:state]
+      @task.update_attributes(state: params[:state])
+    else
+      @task.update(task_params)
     end
+      respond_to do |format|
+        format.html {redirect_to tasks_path, notice: "Task Updated" }
+      end
   end
 
   def destroy
     @task.destroy
     respond_to do |format|
       format.html {redirect_to tasks_path, notice: "Task Destroyed" }
-    end
-  end
-
-  # Custom Methods
-
-  def doing
-    @task.update_attributes(state: "doing")
-    respond_to do |format|
-      format.html {redirect_to tasks_path, notice: "Task Updated" }
-    end
-  end
-
-  def done
-    @task.update_attributes(state: "done")
-    respond_to do |format|
-      format.html {redirect_to tasks_path, notice: "Task Updated" }
-    end
-  end
-
-  def todo
-    @task.update_attributes(state: "to_do")
-    respond_to do |format|
-      format.html {redirect_to tasks_path, notice: "Task Updated" }
     end
   end
 

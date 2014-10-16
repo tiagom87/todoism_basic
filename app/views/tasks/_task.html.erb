@@ -19,14 +19,14 @@
 
 	<div class="panel-footer">
 		<% case task.state when "to_do" %>
-		<%= link_to "<i class='fa fa-arrow-right'></i>".html_safe, doing_task_path(task), method: :put, class: "btn btn-info btn-md btn-block" %>
+		<%= link_to "<i class='fa fa-arrow-right'></i>".html_safe, task_path(task, state: "doing"), method: :put, class: "btn btn-info btn-md btn-block" %>
 		<% when "doing" %>
 		<div class="btn-group btn-group-justified">
- 		 <%= link_to "<i class='fa fa-arrow-left'></i>".html_safe, todo_task_path(task), method: :put, class: "btn btn-info btn-md" %>
-		<%= link_to "<i class='fa fa-arrow-right'></i>".html_safe, done_task_path(task), method: :put, class: "btn btn-info btn-md" %>
+ 		 <%= link_to "<i class='fa fa-arrow-left'></i>".html_safe, task_path(task, state: "to_do"), method: :put, class: "btn btn-info btn-md" %>
+		<%= link_to "<i class='fa fa-arrow-right'></i>".html_safe, task_path(task, state: "done"), method: :put, class: "btn btn-info btn-md" %>
 		</div>
 		<% when "done" %>
-		<%= link_to "<i class='fa fa-arrow-left'></i>".html_safe, doing_task_path(task), method: :put, class: "btn btn-info btn-md btn-block" %>
+		<%= link_to "<i class='fa fa-arrow-left'></i>".html_safe, task_path(task, state: "doing"), method: :put, class: "btn btn-info btn-md btn-block" %>
 		<% end %>
 	</div>
 </div>

@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
-  resources :tasks do
-    member do
-      put :doing
-      put :done
-      put :todo
-    end
-  end
-
+  resources :tasks
 
   devise_for :users
   root "pages#home"
